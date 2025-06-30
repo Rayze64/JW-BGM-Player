@@ -30,6 +30,14 @@ For playing clean, seamless background music before and after meetings at the Ki
 
 ---
 
+## Images
+
+The timer shows how much time there is left until the meeting starts. The program will fit the final song's end time with the beginning of the meeting.
+![Meeting timer](https://github.com/Rayze64/JW-BGM-Player/blob/main/img/v0.2-meeting-timer.png)
+
+When there is no meeting present, a clock will show the time. The program will then act as a regular music player.
+![Off schedule timer](https://github.com/Rayze64/JW-BGM-Player/blob/main/img/v0.2-off-schedule.png)
+
 ## How to Run
 
 1. Get the latest version from [releases](https://github.com/Rayze64/JW-BGM-Player/releases/tag/release)
