@@ -1,3 +1,9 @@
+# # JW BGM Player
+# A simple music player for Jehovah's Witnesses meetings, designed to play background music before and after meetings, with automatic stopping at specified times.
+
+# Made by Raymond Parts (MIT License)
+# Version 0.1
+
 import random
 from pathlib import Path
 from mutagen.mp3 import MP3
