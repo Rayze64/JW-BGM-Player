@@ -1,5 +1,6 @@
 # JW BGM Player
 
+
 A simple, smart background music (BGM) player designed for Jehovah’s Witnesses Kingdom Hall meetings.
 
 🎵 **Plays music from a folder** you select.
@@ -9,6 +10,9 @@ A simple, smart background music (BGM) player designed for Jehovah’s Witnesses
 🔁 **Picks random songs without repeating**, fitting into the time left before the meeting starts.
 
 🪟 Runs as a lightweight Windows app with a simple GUI (built in Python with `tkinter` and `pygame`).
+
+
+# [Download latest version](https://github.com/Rayze64/JW-BGM-Player/releases/tag/release)
 
 ---
 
