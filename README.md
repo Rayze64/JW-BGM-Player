@@ -1,5 +1,4 @@
 # JW BGM Player
-# JW BGM Player
 
 A simple, smart background music (BGM) player designed for Jehovah’s Witnesses Kingdom Hall meetings.
 
@@ -7,7 +6,7 @@ A simple, smart background music (BGM) player designed for Jehovah’s Witnesses
 
 ⏱ **Automatically stops exactly at specified end times** (e.g., 09:55 and 10:55), without cutting songs mid-play.
 
-🔁 **Picks random songs without repeating**, fitting perfectly into the time left before the meeting starts.
+🔁 **Picks random songs without repeating**, fitting into the time left before the meeting starts.
 
 🕹️ Includes an **override field** for custom end times, and a **post-meeting button** to play music indefinitely.
 
@@ -17,8 +16,8 @@ A simple, smart background music (BGM) player designed for Jehovah’s Witnesses
 
 ## Features
 
-* Two hardcoded end times: `09:55` and `10:55`
-* Optional override time (format: `HH:MM`)
+* Default meeting times: `11:00` and `19:00`
+* Optional third time (format: `HH:MM`)
 * Smart duration fitting — calculates how much time is left and plays only songs that fully fit
 * Random shuffle with no repeats until all tracks are played
 * Button to start indefinite music playback after the meeting
