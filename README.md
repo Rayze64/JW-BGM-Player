@@ -4,11 +4,9 @@ A simple, smart background music (BGM) player designed for Jehovah’s Witnesses
 
 🎵 **Plays music from a folder** you select.
 
-⏱ **Automatically stops exactly at specified end times** (e.g., 09:55 and 10:55), without cutting songs mid-play.
+⏱ **Automatically stops exactly at specified end times** (e.g., 11:00 and 18:30), without cutting songs mid-play.
 
 🔁 **Picks random songs without repeating**, fitting into the time left before the meeting starts.
-
-🕹️ Includes an **override field** for custom end times, and a **post-meeting button** to play music indefinitely.
 
 🪟 Runs as a lightweight Windows app with a simple GUI (built in Python with `tkinter` and `pygame`).
 
@@ -16,12 +14,11 @@ A simple, smart background music (BGM) player designed for Jehovah’s Witnesses
 
 ## Features
 
-* Default meeting times: `11:00` and `19:00`
-* Optional third time (format: `HH:MM`)
+* Default meeting times: `11:00` and `18:30`
+* Optional times available by editing config.json file (format: `HH:MM`)
 * Smart duration fitting — calculates how much time is left and plays only songs that fully fit
-* Random shuffle with no repeats until all tracks are played
-* Button to start indefinite music playback after the meeting
-* Folder selection for music library
+* Automatically starts music after opening program (Place program into Startup apps folder for most convenient use)
+* Built-in volume slider
 
 ## Ideal Use Case
 
@@ -42,6 +39,7 @@ For playing clean, seamless background music before and after meetings at the Ki
    ```bash
    python jw_bgm_player.py
    ```
+4. Place your selected songs to /bgm
 
 ## Convert to .EXE
 
@@ -64,7 +62,5 @@ MIT License
 
 ## TODO
 
-* Avoid playing songs already used in the past session
-* Fade in/out transitions
-* Cross-platform support (Linux/Mac)
-* Config file for easier customization
+* Settings menu
+* Language selection option
