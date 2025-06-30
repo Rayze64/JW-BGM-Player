@@ -2,7 +2,7 @@
 # A simple music player for Jehovah's Witnesses meetings, designed to play background music before and after meetings, with automatic stopping at specified times.
 
 # Made by Raymond Parts (MIT License)
-# Version 0.1
+# Version 0.2
 
 import random
 from pathlib import Path
@@ -42,52 +42,39 @@ def get_song_title(file_path):
     except Exception:
         return file_path.stem
 
-def pick_songs_for_time(folder, end_time, current_time):
+def pick_songs_for_time(folder, end_time, current_time, attempts=100):
     music_files = list(Path(folder).glob("*.mp3"))
-    random.shuffle(music_files)
-
-    selected = []
-    total_time = 0
+    best_playlist = []
+    best_leftover = float('inf')
     now = datetime.datetime.now()
     time_left = (end_time - now).total_seconds()
-
     if time_left <= 0:
-        return selected
+        return best_playlist
 
-    # Get all songs fitting the time + tolerance
-    candidates = [song for song in music_files if get_song_length(song) <= time_left + tolerance]
-
-    if candidates:
-        first_song = random.choice(candidates)
-        duration = get_song_length(first_song)
-        selected.append((first_song, duration))
-        total_time += duration
-        music_files.remove(first_song)
-    else:
-        return selected  # no songs fit
-
-    # Add more songs if they fit
-    while total_time < time_left - tolerance:
-        possible = [
-            (s, get_song_length(s)) for s in music_files
-            if total_time + get_song_length(s) <= time_left + tolerance
-        ]
-        if not possible:
-            break
-        next_song, dur = random.choice(possible)
-        selected.append((next_song, dur))
-        total_time += dur
-        music_files.remove(next_song)
-
-    # Fadeout last song if time remains
-    if time_left - total_time >= 15:
+    for _ in range(attempts):
+        random.shuffle(music_files)
+        selected = []
+        total_time = 0
         for song in music_files:
             dur = get_song_length(song)
-            if dur > fade_out and dur >= time_left - total_time - 5:
-                selected.append((song, dur, "fadeout"))
+            if total_time + dur <= time_left + tolerance:
+                selected.append((song, dur))
+                total_time += dur
+        leftover = time_left - total_time
+        if 0 <= leftover < best_leftover:
+            best_leftover = leftover
+            best_playlist = selected
+
+    # Optionally add a fadeout song if leftover time allows
+    if best_leftover >= 15:
+        for song in music_files:
+            dur = get_song_length(song)
+            if dur > fade_out and dur >= best_leftover - 5:
+                best_playlist.append((song, dur, "fadeout"))
                 break
 
-    return selected
+    return best_playlist
+
 
 def pick_random_song(folder):
     music_files = list(Path(folder).glob("*.mp3"))
@@ -144,7 +131,6 @@ class JWBGMScheduler(ctk.CTk):
 
         self.now_playing_frame.pack_forget()  # hide at start
 
-        # === Controls ===
         self.controls_frame = ctk.CTkFrame(self.container, fg_color="transparent")
         self.controls_frame.pack(fill="x", pady=(20, 0))
 
