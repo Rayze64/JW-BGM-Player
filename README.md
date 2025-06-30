@@ -28,29 +28,13 @@ For playing clean, seamless background music before and after meetings at the Ki
 
 ## How to Run
 
-1. Install Python 3.9+
-2. Install dependencies:
+1. Get the latest version from [releases](https://github.com/Rayze64/JW-BGM-Player/releases/tag/release)
 
-   ```bash
-   pip install pygame
-   ```
-3. Run the script:
+2. Unzip the files
 
-   ```bash
-   python jw_bgm_player.py
-   ```
-4. Place your selected songs to /bgm
+3. Add your music files to the bgm folder
 
-## Convert to .EXE
-
-Install `pyinstaller` and run:
-
-```bash
-pip install pyinstaller
-pyinstaller --onefile jw_bgm_player.py
-```
-
-The `.exe` will be in the `dist/` folder.
+4. Change your meeting times in ```config.json```
 
 ---
 
