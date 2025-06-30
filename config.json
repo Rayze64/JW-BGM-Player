@@ -1,6 +1,6 @@
 {
   "music_folder": "bgm",
-  "end_times": ["09:55", "10:55"],
-  "tolerance_seconds": 10,
-  "fade_out_seconds": 2
+  "meeting_start_times": ["11:00", "18:30"],
+  "tolerance_seconds": 5,
+  "fade_out_seconds": 4
 }
